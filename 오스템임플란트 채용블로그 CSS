@@ -5,18 +5,18 @@
  * CSS CONTENTS:
  *
  * 01. Web Font
- * 02. Type Selector Reset
- * 03. Accessibility Navigation
- * 04. Layout Selector
- * 05. Components
- * 06. Entry Content
- * 07. Comment
- * 08. Widget & Template Page
- * 09. ETC
- * 10. Column & Color Type
- * 11. Retina Display
- * 12. Media Screen - Tablet
- * 13. Media Screen - Mobie
+ * 02. Reset (기본 초기화)
+ * 03. Accessibility Navigation (웹 접근성 내비게이션)
+ * 04. Layout Selector (전체 레이아웃 기본)
+ * 05. Components (버튼 등 공용 컴포넌트)
+ * 06. Entry Content (본문 영역)
+ * 07. Comment (댓글 스타일)
+ * 08. Widget & Template Page (위젯/템플릿 페이지)
+ * 09. ETC (기타 스타일)
+ * 10. Column & Color Type (컬럼 및 색상 테마)
+ * 11. Retina Display (레티나 대응)
+ * 12. Media Screen - Tablet (태블릿 반응형)
+ * 13. Media Screen - Mobile (모바일 반응형)
  *
  */
 
@@ -522,7 +522,7 @@ hr {
 
 .cover-slider ul li .text-box {
   display: table-cell;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0);
   text-align: left;
   padding-left: 200px;   /* 왼쪽 여백 */
   vertical-align: middle;
@@ -537,7 +537,7 @@ hr {
 .cover-slider ul li .text-box .title {
   display: block;
   margin-bottom: 40px;
-  text-shadow: 0 0 24px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 24px rgba(0, 0, 0, 0);
   font-size: 3.25em;
   font-weight: 700;
   line-height: 1;
@@ -563,12 +563,12 @@ hr {
 .cover-slider ul li .text-box .subtitle {
   display: block;
   margin-bottom: 40px;
-  text-shadow: 0 0 24px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 24px rgba(0, 0, 0, 0);
   font-size: 1.25em;
   font-weight: 100;
   line-height: 1;
   color: #fff;
-    /* 👇 추가/수정 부분 */
+  /* 👇 추가/수정 부분 */
   text-align: left;    /* 왼쪽 정렬 */
   padding-left: 0px;   /* 왼쪽 여백 */
   margin-top: 10px;   /* 아래로 내리기 */
@@ -577,7 +577,7 @@ hr {
 .cover-slider ul li .text-box .title em {
   display: block;
   margin-bottom: 15px;
-  text-shadow: 0 0 24px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 24px rgba(0, 0, 0, 0);
   font-style: normal;
   font-size: 0.5em;
   line-height: 1;
@@ -588,8 +588,8 @@ hr {
   z-index: 10;
   border-color: #fff;
   color: #fff;
-  background-color: rgba(170, 170, 170, 0.1);
-  box-shadow: 0 0 24px rgba(170, 170, 170, 0.3);
+  background-color: rgba(170, 170, 170, 0);
+  box-shadow: 0 0 24px rgba(170, 170, 170, 0);
     /* 👇 추가/수정 부분 */
   padding: 9px 40px;     /* 버튼 크기 (위아래 15px, 좌우 30px) */
   font-size: 0.9em;       /* 버튼 글씨 크기 */
@@ -825,7 +825,7 @@ hr {
   margin-bottom: 32px;
   padding: 2px 0 3px;
   font-weight: 300;
-  font-size: 1.875em;
+  font-size: 3em;
   line-height: 1.3333;
   color: #EB6100;
 }
@@ -843,7 +843,7 @@ hr {
   display: block;
   margin-bottom: 48px;
   padding: 0 125px;
-  font-size: 0.875em;
+  font-size: 1em;
   line-height: 2.1428;
   color: #666;
 }
