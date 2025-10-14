@@ -247,7 +247,7 @@
                     </span>
                     <span class="title">[##_article_rep_title_##]</span>
                     <span class="excerpt">[##_article_rep_summary_##]</span>
-                    <span class="more">더보5555기</span>
+                    <span class="more">자세히 보기</span>
                   </a>
                 </div>
               </s_index_article_rep>
@@ -338,39 +338,8 @@
             <div class="sidebar-1">
               <s_sidebar>
                 <s_sidebar_element>
-                  <!-- 공지사항 -->
-                  <s_rct_notice>
-                    <div class="posts">
-                      <h2>공지사항</h2>
-                      <ul>
-                        <s_rct_notice_rep>
-                          <li>
-                            <a href="[##_notice_rep_link_##]" class="link_board"
-                              data-tiara-action-name="블로그공지_클릭"
-                              data-tiara-action-kind="ClickContent"
-                              data-tiara-copy="[##_notice_rep_title_##]"
-                              data-tiara-click_url="[##_blog_link_##][##_notice_rep_link_##]"
-                              data-tiara-name="[##_notice_rep_title_##]"
-                              data-tiara-provider="[##_title_##]"
-                              data-tiara-plink="[##_notice_rep_link_##]"
-                              data-tiara-id="[##_notice_rep_link_##]"
-                            >[##_notice_rep_title_##]</a>
-                          </li>
-                        </s_rct_notice_rep>
-                      </ul>
-                    </div>
-                  </s_rct_notice>
                 </s_sidebar_element>
                 <s_sidebar_element>
-                  <!-- 최근 포스트 -->
-                  <div class="posts">
-                    <h2>최근 포스트</h2>
-                    <ul>
-                      <s_rctps_rep>
-                        <li><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a></li>
-                      </s_rctps_rep>
-                    </ul>
-                  </div>
                 </s_sidebar_element>
               </s_sidebar>
             </div>
@@ -378,16 +347,6 @@
             <div class="sidebar-2">
               <s_sidebar>
                 <s_sidebar_element>
-                  <!-- 태그 -->
-                  <div class="tags">
-                    <h2>태그</h2>
-                    <div class="items">
-                      <s_random_tags>
-                        <a href="[##_tag_link_##]">[##_tag_name_##]</a>
-                      </s_random_tags>
-                    </div>
-                    <a href="/tag" class="more">더보666666기</a>
-                  </div>
                 </s_sidebar_element>
               </s_sidebar>
             </div>
@@ -410,15 +369,6 @@
                   </div>
                 </s_sidebar_element>
                 <s_sidebar_element>
-                  <!-- 전체 방문자 -->
-                  <div class="count">
-                    <h2>전체 방문자</h2>
-                    <p class="total">[##_count_total_##]</p>
-                    <ul>
-                      <li><strong>오늘</strong>[##_count_today_##]</li>
-                      <li><strong>어제</strong>[##_count_yesterday_##]</li>
-                    </ul>
-                  </div>
                 </s_sidebar_element>
               </s_sidebar>
             </div>
