@@ -411,16 +411,16 @@ hr {
   vertical-align: middle;
 }
 
-/* Components */
+/* 채용 중인 공고 보기 Components */
 .btn, a.btn {
   display: inline-block;
   position: relative;
   width: 158px;
-  padding: 0 10px;
+  padding: 9px 40px;
   border: 1px solid #EB6100;
   text-decoration: none;
-  text-align: left;
-  font-size: 12px;
+  text-align: center;
+  font-size: 0.9em;
   line-height: 38px;
   color: #EB6100;
   -webkit-transition: color .2s, background-color .2s;
@@ -617,73 +617,101 @@ hr {
   z-index: 0;
 }
 
+.cover-thumbnail-list-1 h2,
+.cover-thumbnail-list-1 .title {
+  text-align: center;
+  margin-bottom: 40px; /* 제목과 썸네일 간격 */
+}
+
 .cover-thumbnail-list-1 {
   overflow: hidden;
   max-width: 1200px;
   margin: 80px auto 71px;
   box-sizing: border-box;
+  text-align: center; /* 내부 중앙 정렬 */
 }
 
+/* 제목 정렬 수정 */
 .cover-thumbnail-list-1 h2 {
-  float: left;
-  width: 24%;
+  float: none; /* 기존 float 제거 */
+  width: 100%; /* 한 줄 전체 사용 */
+  text-align: left; /* 👈 왼쪽 정렬 */
+  margin: 0 0 40px 0; /* 제목 하단 여백 */
   font-weight: 300;
   font-size: 1.875em;
   line-height: 1.3333;
   color: #EB6100;
 }
 
+/* 제목 아래 주황색 밑줄 중앙정렬 */
 .cover-thumbnail-list-1 h2:after {
   content: "";
   display: block;
   width: 30px;
   height: 1px;
-  margin-top: 31px;
+  margin-top: 20px; /* 제목과의 간격 */
   background-color: #EB6100;
 }
 
+/* 제목 내 보조 텍스트 스타일 */
 .cover-thumbnail-list-1 h2 em {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-style: normal;
   font-weight: 700;
-  font-size: 0.4666em;
+  font-size: 0.5em;
   color: #000;
 }
 
 .cover-thumbnail-list-1 ul {
-  float: left;
-  width: 76%;
+  text-align: center;
+  margin-top: 60px; /* 전체 섹션 위쪽 여백 */
+ }
+
+.cover-thumbnail-list-1 ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; gap: 40px; /* 항목 간 간격 */
+  width: 100%; margin-top: 30px; /* 제목과 리스트 사이 간격 */
+  padding: 0;
+  list-style: none;
 }
 
 .cover-thumbnail-list-1 ul li {
-  float: left;
-  width: 33.3333%;
-  padding-left: 16px;
-  text-align: center;
-  font-size: 0.875em;
-  line-height: 2.25;
-  color: #666;
+  width: 30%; /* 한 줄에 3개 (화면 크기에 따라 자동 줄바꿈) */
   box-sizing: border-box;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 1.8;
+  color: #666;
+  transition: transform 0.3s ease;
+}
+
+.cover-thumbnail-list-1 ul li:hover {
+  transform: translateY(-5px);
 }
 
 .cover-thumbnail-list-1 ul li a {
   display: block;
   text-decoration: none;
   color: #666;
-  -webkit-transition: color .2s;
-  transition: color .2s;
+  transition: color 0.2s;
+}
+
+.cover-thumbnail-list-1 ul li a:hover {
+  color: #000;
 }
 
 .cover-thumbnail-list-1 ul li .thum {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 12px; /* 이미지와 제목 사이 간격 */
   position: relative;
 }
 
 .cover-thumbnail-list-1 ul li .thum img {
   width: 100%;
   height: auto;
+  border-radius: 0px; /* 이미지 모서리 둥글게 */
 }
 
 .cover-thumbnail-list-1 ul li .title {
@@ -693,24 +721,21 @@ hr {
   text-overflow: ellipsis;
 }
 
-.cover-thumbnail-list-1 ul li a:hover {
-  color: #000;
-}
-
+/* hover 시 이미지 밝기 효과 */
 .cover-thumbnail-list-1 ul li .thum:before {
   content: "";
-  background-color: rgba(255, 255, 255, 0);
-  -webkit-transition: background-color .5s;
-  transition: background-color .5s;
-}
-
-.cover-thumbnail-list-1 ul li a:hover .thum:before {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+}
+
+.cover-thumbnail-list-1 ul li a:hover .thum:before {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .cover-special-contents {
