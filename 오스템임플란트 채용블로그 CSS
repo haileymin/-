@@ -873,6 +873,7 @@ hr {
   color: #666;
 }
 
+/*
 .post-header {
   position: relative;
   z-index: 10;
@@ -933,6 +934,7 @@ hr {
   background-position: -150px -100px;
   outline: none;
 }
+*/
 
 .post-item {
   float: left;
@@ -4559,4 +4561,155 @@ hr[data-ke-style='style8'],
 
 .box-timeline-content {
   word-break: break-all;
+}
+
+/* ===============================
+   공통 Hero 영역 기본 스타일
+   =============================== */
+.page-hero {
+  color: #fff;
+  text-align: center;
+  padding: 70px 20px;
+  margin-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero .hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.page-hero p {
+  font-size: 1.25em;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 1;
+}
+
+/* ===============================
+   카테고리별 배경 스타일
+   =============================== */
+
+/* 🧡 PEOPLE */
+.page-hero.people {
+  background: linear-gradient(135deg, #EB6100 0%, #f28d00 100%);
+}
+
+/* 🔷 CULTURE */
+.page-hero.culture {
+  background: linear-gradient(135deg, #EB6100 0%, #f28d00 100%);
+}
+
+/* 🔷 NEWS */
+.page-hero.news {
+  background: linear-gradient(135deg, #EB6100 0%, #f28d00 100%);
+}
+
+/* 반투명한 오버레이 효과 (선택사항) */
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+}
+
+/* --------------------------
+📌 카테고리별 콘텐츠 폭 확장 (Whatever 스킨 전용)
+--------------------------- */
+
+/* 기본 콘텐츠 영역 확장 */
+.article-wrap, .inner, .content-area {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* People / Culture / News 카테고리일 때 폭 더 넓게 */
+body.category-people .article-wrap,
+body.category-culture .article-wrap,
+body.category-news .article-wrap {
+  max-width: 1400px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+/* 혹시 .container가 존재할 경우 대비 */
+body.category-people .container,
+body.category-culture .container,
+body.category-news .container {
+  max-width: 1400px !important;
+}
+
+/* 반응형 대응: 화면이 작을 땐 다시 기본 폭 */
+@media (max-width: 1024px) {
+  .article-wrap, .inner, .content-area {
+    max-width: 95% !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+/* 카테고리 페이지에서만 타이틀 제거 */
+body[class*="category"] .category_title,
+body[class*="category"] .archive-header,
+body[class*="category"] .hgroup {
+  display: none !important;
+}
+}
+
+/* ==========================================
+   🔥 기존 padding 비율 트릭 제거 (핵심)
+   ========================================== */
+.post-item .thum,
+.cover-thumbnail-list-1 ul li .thum,
+.cover-thumbnail-list-2 ul li .thum {
+  padding-bottom: 0 !important;   /* 비율 제거 */
+  height: auto !important;        /* 기존 height:0 철회 */
+}
+
+/* ==========================================
+   🟥 840:540 와이드 카드형 썸네일 통일
+   ========================================== */
+
+/* 썸네일 컨테이너 - 840:540 비율 고정 */
+.post-item .thum,
+.cover-thumbnail-list-1 ul li .thum,
+.cover-thumbnail-list-2 ul li .thum {
+  width: 100% !important;
+  max-width: 840px;            /* 원하는 최대 넓이 */
+  aspect-ratio: 840 / 540;        /* ✅ 비율 고정 */
+  overflow: hidden;
+  margin: 0 auto;
+  display: block;
+  /* border-radius: 8px;    (선택) 모서리 둥글게 */
+  background-color: #f2f2f2;
+}
+
+/* 이미지 설정 - 세로 기준, 가로는 잘려도 됨 */
+.post-item .thum img,
+.cover-thumbnail-list-1 ul li .thum img,
+.cover-thumbnail-list-2 ul li .thum img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;     /* ✅ 가로 잘라도 됨 */
+  object-position: center !important;
+  display: block;
+}
+
+
+@media (max-width: 1024px) {
+  .post-item .thum img,
+  .cover-thumbnail-list-1 ul li .thum img,
+  .cover-thumbnail-list-2 ul li .thum img {
+    width: 100% !important;
+    height: auto !important;
+  }
 }
