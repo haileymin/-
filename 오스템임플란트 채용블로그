@@ -173,6 +173,7 @@
             </div>
           </s_notice_rep>
 
+          <!--
           <s_list>
             <div class="post-header">
               <h2>[##_list_conform_##]</h2>
@@ -182,7 +183,8 @@
               </div>
             </div>
           </s_list>
-
+          -->
+          
           <div class="inner">
             <s_article_protected>
               <s_index_article_rep>
@@ -225,6 +227,44 @@
                 </div>
               </s_permalink_article_rep>
             </s_article_protected>
+
+<!-- ===== 카테고리별 상단 배너 시작 ===== -->
+<div class="page-hero people">
+  <div class="hero-content">
+    <h1>People</h1>
+    <p>오스템의 성장을 함께 이끌어가는 사람들의 이야기</p>
+  </div>
+</div>
+
+<div class="page-hero culture">
+  <div class="hero-content">
+    <h1>Culture</h1>
+    <p>오스템의 조직문화와 일하는 방식을 담은 이야기</p>
+  </div>
+</div>
+
+<div class="page-hero news">
+  <div class="hero-content">
+    <h1>News</h1>
+    <p>오스템의 최신 소식을 전합니다</p>
+  </div>
+</div>
+
+<script>
+  // 모든 배너 숨기기
+  document.querySelectorAll('.page-hero').forEach(el => el.style.display = 'none');
+
+  const url = window.location.href;
+
+  if (url.includes('/category/People')) {
+    document.querySelector('.page-hero.people').style.display = 'block';
+  } else if (url.includes('/category/Culture')) {
+    document.querySelector('.page-hero.culture').style.display = 'block';
+  } else if (url.includes('/category/News')) {
+    document.querySelector('.page-hero.news').style.display = 'block';
+  }
+</script>
+<!-- ===== 카테고리별 상단 배너 끝 ===== -->
 
             <s_article_rep>
               <s_index_article_rep>
