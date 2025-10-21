@@ -4663,7 +4663,6 @@ body[class*="category"] .archive-header,
 body[class*="category"] .hgroup {
   display: none !important;
 }
-}
 
 /* ==========================================
    🔥 기존 padding 비율 트릭 제거 (핵심)
@@ -4693,6 +4692,7 @@ body[class*="category"] .hgroup {
   background-color: #f2f2f2;
 }
 
+
 /* 이미지 설정 - 세로 기준, 가로는 잘려도 됨 */
 .post-item .thum img,
 .cover-thumbnail-list-1 ul li .thum img,
@@ -4704,7 +4704,6 @@ body[class*="category"] .hgroup {
   display: block;
 }
 
-
 @media (max-width: 1024px) {
   .post-item .thum img,
   .cover-thumbnail-list-1 ul li .thum img,
@@ -4712,4 +4711,103 @@ body[class*="category"] .hgroup {
     width: 100% !important;
     height: auto !important;
   }
+}
+
+/* ✅ 카테고리 콘텐츠 3단 정렬 안정화 */
+#tt-body-category .post-list-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 💡 flex → grid로 변경 */
+  gap: 40px 24px;                         /* 위아래 40, 좌우 24 간격 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  align-items: start; /* 각 행의 카드가 위 기준으로 정렬 */
+}
+
+#tt-body-category .post-list-wrapper .post-item {
+  width: 100%;                            
+  box-sizing: border-box;  
+}
+
+#tt-body-category .post-list-wrapper .post-item .thum {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important; /* ✅ 핵심: 100% → auto */
+  aspect-ratio: auto
+  height: auto;
+  overflow: hidden !important;
+  background-color: #f2f2f2 !important;
+}
+
+#tt-body-category .post-list-wrapper .post-item .thum img {
+  width: 100% !important;
+  height: 100% !important; /* ✅ 고정 높이로 변경 */
+  aspect-ratio: 840 / 540 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+/* ===============================
+   ✅ 카테고리 그리드 '정렬 틀어짐' 완전 초기화
+   (Whatever 스킨의 4열 float 잔존 규칙 무력화)
+   =============================== */
+
+/* 1) 카테고리 리스트 컨테이너: 3열 grid + gap만 사용 */
+#tt-body-category .post-list-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 70px 40px !important;   /* 위아래 36, 좌우 24 */
+  max-width: 1170px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;       /* ← 내부 padding 제거: 좌측 들뜸 방지 */
+  align-items: start !important;
+  justify-items: stretch !important; /* 카드 폭을 열 너비에 맞춤 */
+  box-sizing: border-box !important;
+}
+
+/* 2) 카드(.post-item)에서 플로트/마진/클리어/정렬 잔재 제거 */
+#tt-body-category .post-list-wrapper .post-item {
+  float: none !important;
+  clear: none !important;
+  margin: 0 !important;          /* ← 좌우 들뜸의 주범 */
+  padding: 0 !important;
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* 3) 열 기준 마진을 건드리는 모든 nth-child 규칙 무력화 */
+#tt-body-category .post-list-wrapper .post-item:nth-child(3n+1),
+#tt-body-category .post-list-wrapper .post-item:nth-child(4n+1),
+#tt-body-category .post-list-wrapper .post-item:nth-child(5n+1),
+#tt-body-category .post-list-wrapper .post-item:nth-child(n) {
+  margin-left: 0 !important;
+  clear: none !important;
+}
+
+/* 4) 썸네일 박스: 비율/오버플로우만 관리 (마진/패딩 없음) */
+#tt-body-category .post-list-wrapper .post-item .thum {
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  background-color: #f2f2f2 !important;
+}
+
+/* 5) 이미지 렌더링 안정화 (확대/들뜸 방지) */
+#tt-body-category .post-list-wrapper .post-item .thum img {
+  width: 100% !important;
+  height: 100% !important;     /* object-fit과 함께 써서 동일 박스에 꽉 차게 */
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transform: translateZ(0);     /* 서브픽셀 렌더링 오차 줄임 */
+}
+
+/* 6) 혹시 .inner/.container 자체에 좌우 padding이 남아 있으면 카테고리에서만 제거 */
+#tt-body-category .inner,
+#tt-body-category .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
