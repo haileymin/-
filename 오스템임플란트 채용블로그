@@ -185,7 +185,30 @@
           </s_list>
           -->
           
-          <div class="inner">
+<!-- ===== 카테고리별 상단 배너 시작 ===== -->
+<div class="page-hero people">
+  <div class="hero-content">
+    <h1>People</h1>
+    <p>오스템의 성장을 함께 이끌어가는 사람들의 이야기</p>
+  </div>
+</div>
+
+<div class="page-hero culture">
+  <div class="hero-content">
+    <h1>Culture</h1>
+    <p>오스템의 조직문화와 일하는 방식을 담은 이야기</p>
+  </div>
+</div>
+
+<div class="page-hero news">
+  <div class="hero-content">
+    <h1>News</h1>
+    <p>오스템의 최신 소식을 전합니다</p>
+  </div>
+</div>         
+<!-- ===== 카테고리별 상단 배너 끝 ===== -->
+
+          <div class="inner post-list-wrapper">
             <s_article_protected>
               <s_index_article_rep>
                 <div class="post-item">
@@ -228,28 +251,6 @@
               </s_permalink_article_rep>
             </s_article_protected>
 
-<!-- ===== 카테고리별 상단 배너 시작 ===== -->
-<div class="page-hero people">
-  <div class="hero-content">
-    <h1>People</h1>
-    <p>오스템의 성장을 함께 이끌어가는 사람들의 이야기</p>
-  </div>
-</div>
-
-<div class="page-hero culture">
-  <div class="hero-content">
-    <h1>Culture</h1>
-    <p>오스템의 조직문화와 일하는 방식을 담은 이야기</p>
-  </div>
-</div>
-
-<div class="page-hero news">
-  <div class="hero-content">
-    <h1>News</h1>
-    <p>오스템의 최신 소식을 전합니다</p>
-  </div>
-</div>
-
 <script>
   // 모든 배너 숨기기
   document.querySelectorAll('.page-hero').forEach(el => el.style.display = 'none');
@@ -264,7 +265,7 @@
     document.querySelector('.page-hero.news').style.display = 'block';
   }
 </script>
-<!-- ===== 카테고리별 상단 배너 끝 ===== -->
+
 
             <s_article_rep>
               <s_index_article_rep>
@@ -282,7 +283,7 @@
                   >
                     <span class="thum">
                       <s_article_rep_thumbnail>
-                        <img loading="lazy" src="//i1.daumcdn.net/thumb/C276x260.fwebp.q85/?fname=[##_article_rep_thumbnail_raw_url_##]" alt="">
+                        <img loading="lazy" src="//i1.daumcdn.net/thumb/C264x200.fwebp.q85/?fname=[##_article_rep_thumbnail_raw_url_##]" alt="">
                       </s_article_rep_thumbnail>
                     </span>
                     <span class="title">[##_article_rep_title_##]</span>
