@@ -134,6 +134,12 @@ hr {
   margin: 0 auto;
 }
 
+#header .inner h1 img {
+  height: 35px;   /* 기존보다 키움 (보통 40~50px 정도임) */
+  width: auto;    /* 가로 자동으로 비율 유지 */
+  transition: all 0.2s ease; /* 부드럽게 변경 효과 */
+}
+
 #header .inner:after {
   content: "";
   clear: both;
@@ -1024,7 +1030,9 @@ hr {
   display: block;
   overflow: hidden;
   width: 90%;
-  margin-bottom: 2px;
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 700;
@@ -1044,11 +1052,12 @@ hr {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-left: 5px;
+  margin-bottom: 0px;
   text-overflow: ellipsis;
   font-size: 0.875em;
   line-height: 1.375rem;
-  color: #666;
+  color: rgb(131, 131, 131);
   -webkit-transition: color .2s;
   transition: color .2s;
 }
@@ -1067,6 +1076,7 @@ hr {
 .post-item .more,
 .cover-thumbnail-list-2 ul li .more {
   display: inline-block;
+  margin-left: 5px;
   font-size: 0.75em;
   color: #d4bca7;
   vertical-align: top;
@@ -1178,21 +1188,26 @@ hr {
 .hgroup .category {
   margin-bottom: 8px;
   font-weight: 700;
-  font-size: 0.875em;
-  color: #000;
+  font-size: 1em;
+  color: #EB6100;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .hgroup h1 {
-  font-size: 1.5em;
-  font-weight: 400;
+  font-size: 2.2em;
+  font-weight: 500;
   line-height: 1.0666;
-  color: #EB6100;
+  color: #000;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .hgroup .post-meta {
   margin: 18px 0 -2px;
   font-size: 0.75em;
   color: #b2b2b2;
+  text-align: right;
 }
 
 .hgroup .post-meta a {
@@ -1281,6 +1296,51 @@ hr {
   background-position: -150px -50px;
 }
 
+/* ===============================
+   🔶 채용 슬로건 배너 + 버튼 스타일
+   =============================== */
+.recruit-banner {
+  text-align: center;
+  margin: 60px auto 20px;
+  padding: 50px 20px;
+  max-width: 900px;
+}
+
+.recruit-banner h2 {
+  font-size: 2em;
+  color: #EB6100;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.recruit-banner p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* 🧡 버튼 스타일 (홈 화면과 동일하게) */
+.recruit-banner .btn {
+  display: inline-block;
+  position: relative;
+  width: 158px;
+  padding: 9px 40px;
+  border: 1px solid #EB6100;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 38px;
+  color: #EB6100;
+  transition: color .2s, background-color .2s;
+}
+
+.recruit-banner .btn:hover {
+  background-color: #EB6100;
+  color: #fff;
+}
+
+
 .another-category {
   max-width: 1200px;
   margin: 20px auto 36px;
@@ -1301,6 +1361,7 @@ hr {
   color: #b2b2b2;
 }
 
+/* 왼쪽 제목 영역 */
 .another-category table th {
   padding: 8px 0 4px;
   border-bottom: 1px solid #e6e6e6;
@@ -1308,26 +1369,36 @@ hr {
   font-weight: 400;
 }
 
-.another-category table th a {
+/* 링크 (글 제목) 스타일 */
+.another_category table th a {
   text-decoration: none;
   color: #b2b2b2;
 }
 
-.another-category table th a:hover {
+.another_category table th a:hover {
   color: #EB6100;
 }
 
-.another-category table th span {
+/* 댓글 수*/
+.another_category table th span {
   font-size: 0.75em;
+  display: none !important;
 }
 
-.another-category td {
+.another_category td {
   width: 60px;
   padding: 8px 0 4px;
   border-bottom: 1px solid #e6e6e6;
-  font-size: 0.75em;
+  font-size: 0.75em !important;   /* ✅ 크기 조정 */
   line-height: 1;
   color: #b2b2b2;
+}
+
+/* ✅ 리스트 항목 간 간격 넓히기 */
+.another_category table th,
+.another_category table td {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
 }
 
 /* Style Important */
@@ -2367,6 +2438,19 @@ hr {
 
 .color-dark .container_postbtn .postbtn_like .txt_like {
   color: #808080;
+}
+
+/* 공감 / 공유 / 통계 버튼 전체를 오른쪽 정렬 */
+.container_postbtn {
+  display: flex;
+  justify-content: flex-end;  /* 👉 오른쪽 정렬 */
+  margin-top: 20px;           /* (선택) 위쪽 여백 */
+}
+
+/* 게시글 하단 '구독하기' 버튼 숨기기 */
+.container_postbtn .btn_subscription,
+.postbtn_subscription {
+  display: none !important;
 }
 
 /* Retina Display */
@@ -4810,4 +4894,41 @@ body[class*="category"] .hgroup {
 #tt-body-category .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+/* ===============================
+   🟧 카테고리 상단 제목 (홈 Latest Posts와 동일 스타일)
+   =============================== */
+.category-heading {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.category-heading h2 {
+  font-size: 1.9em;
+  color: #EB6100;
+  font-weight: 550;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.category-heading h2::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 0.5px;
+  background-color: #EB6100;
+  margin-top: 25px;
+}
+
+/* 카테고리 클릭 시 깜빡임 현상 제거 */
+#tt-body-category #category-latest-heading {
+  display: block !important;
+}
+#tt-body-index #category-latest-heading,
+#tt-body-page #category-latest-heading,
+#tt-body-entry #category-latest-heading {
+  display: none !important;
 }
