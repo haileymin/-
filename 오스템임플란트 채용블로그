@@ -164,7 +164,7 @@
             <div class="hgroup">
               <h1>[##_notice_rep_title_##]</h1>
               <div class="post-meta">
-                <span class="author">[##__notice_rep_author_##]</span>
+              <!--  <span class="author">[##__notice_rep_author_##]</span> -->
                 <span class="date">[##_notice_rep_date_##]</span>
               </div>
             </div>
@@ -208,6 +208,20 @@
 </div>         
 <!-- ===== 카테고리별 상단 배너 끝 ===== -->
 
+<!-- ===== 카테고리 제목 영역 (카테고리 페이지에서만 표시) ===== -->
+<div id="category-latest-heading" class="category-heading" style="display:none;">
+  <h2>Latest Posts</h2>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (window.location.href.includes("/category/")) {
+      document.getElementById("category-latest-heading").style.display = "block";
+    }
+  });
+</script>
+<!-- ===== 카테고리 제목 영역 끝 ===== -->
+
           <div class="inner post-list-wrapper">
             <s_article_protected>
               <s_index_article_rep>
@@ -235,7 +249,7 @@
                   <div class="category">보호글</div>
                   <h1>[##_article_rep_title_##] </h1>
                   <div class="post-meta">
-                    <span class="author">[##_article_rep_author_##]</span>
+                  <!--  <span class="author">[##_article_rep_author_##]</span> -->
                     <span class="date">[##_article_rep_date_##]</span>
                   </div>
                 </div>
@@ -297,7 +311,7 @@
                   <div class="category">[##_article_rep_category_##]</div>
                   <h1>[##_article_rep_title_##] </h1>
                   <div class="post-meta">
-                    <span class="author">[##_article_rep_author_##]</span>
+                  <!--  <span class="author">[##_article_rep_author_##]</span> -->
                     <span class="date">[##_article_rep_date_##]</span>
                     [##_s_ad_isolation_##]
                   </div>
@@ -305,6 +319,7 @@
                 <div class="entry-content" id="article-view">
                   [##_article_rep_desc_##]
                 </div>
+
                 <s_tag_label>
                   <div class="tags">
                     <h2>태그</h2>
@@ -314,6 +329,7 @@
                   </div>
                 </s_tag_label>
 
+<!--
                 <s_article_related>
                   <div class="related-articles">
                     <h2><strong>'[##_article_rep_category_##]'</strong> Related Articles</h2>
@@ -339,6 +355,16 @@
                 <s_rp>
                   [##_comment_group_##]
                 </s_rp>
+-->
+
+
+<!-- ===== 채용 슬로건 & 버튼 영역 시작 ===== -->
+<div class="recruit-banner">
+  <h2>Join the Awesome Improvement</h2>
+<!--  <p>오스템임플란트와 함께 성장해 나갈 인재를 모집합니다.</p> -->
+  <a href="https://career.osstem.com" class="btn view">채용 홈페이지 바로가기</a>
+</div>
+<!-- ===== 채용 슬로건 & 버튼 영역 끝 ===== -->
 
               </s_permalink_article_rep>
             </s_article_rep>
@@ -422,8 +448,52 @@
         <p class="copyright">© <a href="#">OSSTEM IMPLANT</a> <class="copyright">ALL RIGHTS RESERVED. <a href="[##_owner_url_##]" class="admin">관리자</a></p>
       </footer>
     </div>
+<!--
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const recruitBanner = document.querySelector('.recruit-banner');
+  const anotherCategory = document.querySelector('.another_category');
+
+  // 카테고리의 다른 글이 존재하면
+  if (recruitBanner && anotherCategory) {
+    // another_category 바로 위 요소 중, .entry-content가 있으면 그 안으로 이동
+    const entryContent = document.querySelector('.entry-content');
+    if (entryContent && anotherCategory.parentNode) {
+      entryContent.appendChild(recruitBanner); // 본문 내부에 재배치
+      // 그리고 another_category 바로 위로 이동시킴
+      anotherCategory.parentNode.insertBefore(recruitBanner, anotherCategory);
+    }
+  }
+
+  // 날짜 포맷 정리 (기존 코드 유지)
+  document.querySelectorAll('.date').forEach(function(el) {
+    const text = el.innerText.trim();
+    const parts = text.split(' ');
+    if (parts.length >= 3) {
+      let dateOnly = parts[0] + ' ' + parts[1] + ' ' + parts[2];
+      dateOnly = dateOnly.replace(/\.$/, "");
+      el.innerText = dateOnly;
+    }
+  });
+});
+</script>
+-->
     <script src="./images/script.js"></script>
   </s_t3>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.date').forEach(function(el) {
+    const text = el.innerText.trim();
+    // "2025. 10. 21. 16:01" → "2025. 10. 21"
+    const parts = text.split(' ');
+    if (parts.length >= 3) {
+      let dateOnly = parts[0] + ' ' + parts[1] + ' ' + parts[2];
+      dateOnly = dateOnly.replace(/\.$/, ""); // 맨 끝 점 제거
+      el.innerText = dateOnly;
+    }
+  });
+});
+</script>
 </body>
 
 </html>
