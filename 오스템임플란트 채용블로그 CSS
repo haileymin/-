@@ -826,7 +826,7 @@ hr {
 
 .cover-wide-panel {
   max-width: 1200px;
-  margin: 80px auto 120px;
+  margin: -60px auto 120px; /* 배너 위 여백 줄이기 -60px */
 }
 
 .cover-wide-panel .bg {
@@ -1049,8 +1049,9 @@ hr {
   overflow: hidden;
   width: 90%;
   height: 4.125rem;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1; /*썸네일 아래 내용 1줄만*/
   -webkit-box-orient: vertical;
+  white-space: normal; /* 여러 줄 가능하되 1줄까지만 */
   overflow: hidden;
   margin-left: 5px;
   margin-bottom: 0px;
@@ -1301,7 +1302,7 @@ hr {
    =============================== */
 .recruit-banner {
   text-align: center;
-  margin: 60px auto 20px;
+  margin: 50px auto 90px;
   padding: 50px 20px;
   max-width: 900px;
 }
@@ -1310,7 +1311,7 @@ hr {
   font-size: 2em;
   color: #EB6100;
   font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .recruit-banner p {
@@ -1318,6 +1319,14 @@ hr {
   color: #555;
   margin-bottom: 28px;
   line-height: 1.6;
+}
+
+/* 🔸 recruit-banner 구분선 (홈 화면 배너와 동일 스타일) */
+.recruit-banner .divider {
+  width: 40px;              /* 선 길이 */
+  height: 1px;              /* 두께 */
+  background-color: #EB6100; /* 오스템 포인트 컬러 */
+  margin: 0px auto 35px;   /* 위·아래 여백 (위는 h2와 간격, 아래는 버튼과 간격) */
 }
 
 /* 🧡 버튼 스타일 (홈 화면과 동일하게) */
@@ -1414,11 +1423,13 @@ hr {
   position: relative;
   overflow: hidden;
   max-width: 860px;
-  margin: 35px auto 32px;
+  margin: 150px auto 32px;
+  margin-left: 1px;
   color: #b2b2b2;
 }
 
 .tags h2 {
+  display: none;
   margin-bottom: 10px;
   font-size: 1em;
   color: #666;
@@ -1426,23 +1437,53 @@ hr {
 
 .tags .items {
   margin: 0 0 0 -18px;
+  color: #fff;
 }
 
 .tags .items a {
   display: inline-block;
-  margin-left: 18px;
-  text-decoration: none;
-  font-size: 0.875em;
-  line-height: 2.1428;
-  color: #b2b2b2;
+  padding: 6px 13px;             /* 버튼 안쪽 여백 */
+  margin: 3px -1px 0 0;           /* 버튼 사이 간격 */
+  border: 1px solid #EB6100;     /* 오스템 포인트 컬러 테두리 */
+  border-radius: 20px;           /* 둥근 모서리 → 원형 버튼 느낌 */
+  background-color: #fff;        /* 배경색 (기본 흰색) */
+  color: #EB6100 !important;         /* 주황색 고정 */
+  font-size: 0.85em !important;
+  text-decoration: none !important;  /* 밑줄 제거 */
+  transition: all 0.2s ease-in-out;
 }
 
+/* 호버 시 효과 */
 .tags .items a:hover {
-  color: #EB6100;
+  background-color: #EB6100;
+  color: #fff !important;
 }
 
 .tags .items a:before {
   content: "#";
+}
+
+/* 콤마 완전 차단 (티스토리 기본 쉼표 제거) */
+.tags .items a::after {
+  content: "";
+}
+
+/* 예전 버전 브라우저 대응 */
+.tags .items a:not(:last-child)::after {
+  content: "";
+}
+
+/* 처음엔 숨김 */
+.tags {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* JS로 이동 완료 후 표시 */
+.tags.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 #content .tags .items a {
@@ -2513,7 +2554,7 @@ hr {
   .cover-wide-panel .box {
     max-width: none;
     margin-left: 50px;
-    margin-right: 50px
+    margin-right: 50px;
   }
 
   .entry-content img.alignleft,
@@ -4923,7 +4964,6 @@ body[class*="category"] .hgroup {
   margin-top: 25px;
 }
 
-/* 카테고리 클릭 시 깜빡임 현상 제거 */
 #tt-body-category #category-latest-heading {
   display: block !important;
 }
@@ -4931,4 +4971,179 @@ body[class*="category"] .hgroup {
 #tt-body-page #category-latest-heading,
 #tt-body-entry #category-latest-heading {
   display: none !important;
+}
+
+
+.post-item .excerpt {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} 
+
+/* 검색어를 입력하세요. */
+/* ===== 🔍 카테고리 우측 검색창 스타일 ===== */
+#gnb {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  position: relative;
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.search-toggle img {
+  width: 20px;
+  height: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  margin-left: 10px;
+}
+
+.search-box input {
+  width: 180px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box .search-close {
+  color: #5c5c5c;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* ✅ 활성화 시 */
+.header-search.active .search-box {
+  opacity: 1;
+  width: 230px;
+}
+
+.header-search.active .search-toggle {
+  transform: translateX(0px);
+}
+
+.search-box fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Footer Layout ===== */
+#footer {
+  background-color: #f0f0f0;
+  border-top: 1px solid #e6e6e6;
+  padding: 20px 0;
+  font-size: 1em;
+  color: #777;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ===== SNS 아이콘 ===== */
+.footer-social a i {
+  color: #777;
+  margin-right: 16px;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.footer-social a:last-child {
+  margin-right: 0;
+}
+
+.footer-social a:hover i {
+  color: #EB6100; /* 오스템 포인트 컬러 */
+}
+
+/* ===== Copyright ===== */
+.copyright {
+  margin: 10px 0;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+.copyright span {
+  font-weight: 500;
+  color: #EB6100;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social {
+    margin-bottom: 10px;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+}
+
+/* 채용 중인 공고 보기 버튼 하단 여백 */
+.cover-wide-panel .btn.view {
+  display: inline-block;
+  margin-bottom: 100px; /* 버튼 아래 간격 */
+}
+
+/*태그를 공감 버튼튼 위로*/
+.container_postbtn {
+  text-align: right;     /* 오른쪽 정렬 */
+  margin: 20px 0 40px;   /* 위아래 여백 */
+}
+
+.container_postbtn [id*="recomm_btn"] {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.9em;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.container_postbtn [id*="recomm_btn"]:hover {
+  background-color: #EB6100;
+  color: #fff;
+  border-color: #EB6100;
 }
