@@ -8,14 +8,14 @@
   <title>[##_page_title_##]</title>
   <link rel="stylesheet" href="./style.css">
   <script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body id="[##_body_id_##]"
-  class="<s_if_var_layout-type>[##_var_layout-type_##] </s_if_var_layout-type><s_if_var_color-type>[##_var_color-type_##]</s_if_var_color-type><s_if_var_post-type> [##_var_post-type_##]</s_if_var_post-type><s_if_var_view-more> paging-view-more</s_if_var_view-more>">
+  class="<s_if_var_layout-type>[##_var_layout-type_##] </s_if_var_layout-type><s_if_var_color-type>[##_var_color-type_##]</s_if_var_color-type><s_if_var_post-type> [##_var_post-type_##]</s_if_var_post-type>
   <s_t3>
-    <div id="acc-nav">
-      <a href="#content">본문 바로가기</a>
-    </div>
     <div id="wrap">
       <header id="header">
         <div class="inner">
@@ -32,6 +32,29 @@
           <button type="button" class="mobile-menu"><span>메뉴</span></button>
           <nav id="gnb">
             [##_blog_menu_##]
+
+  <div class="header-search">
+    <button class="search-toggle">
+      <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="검색">
+    </button>
+<div class="search-box">
+  <s_search>
+    <fieldset>
+      <label for="[##_search_name_##]" class="screen_out">블로그 내 검색</label>
+      <input 
+        id="[##_search_name_##]" 
+        type="text" 
+        name="[##_search_name_##]" 
+        value=""
+        placeholder="검색어를 입력하세요."
+        onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"
+      >
+      <button type="button" class="search-close">✕</button>
+    </fieldset>
+  </s_search>
+</div>
+  </div>
+</nav>
           </nav>
         </div>
       </header>
@@ -282,6 +305,17 @@
 
 
             <s_article_rep>
+
+<!-- ===== 글 요약 입력 필드 강제 표시 ===== -->
+<s_admin>
+  <div class="admin-summary-input">
+    <label for="summary">요약 입력란 (목록에서 보이는 텍스트)</label>
+    <textarea name="summary" id="summary" rows="3" style="width:100%; margin:10px 0;">[##_article_rep_summary_##]</textarea>
+  </div>
+</s_admin>
+<!-- ================================== -->
+
+
               <s_index_article_rep>
                 <div class="post-item">
                   <a href="[##_article_rep_link_##]"
@@ -320,15 +354,6 @@
                   [##_article_rep_desc_##]
                 </div>
 
-                <s_tag_label>
-                  <div class="tags">
-                    <h2>태그</h2>
-                    <div class="items">
-                      [##_tag_label_rep_##]
-                    </div>
-                  </div>
-                </s_tag_label>
-
 <!--
                 <s_article_related>
                   <div class="related-articles">
@@ -357,10 +382,27 @@
                 </s_rp>
 -->
 
+<!-- 태그 -->
+<s_tag_label>
+  <div class="tags">
+    <h2>태그</h2>
+    <div class="items">
+      [##_tag_label_rep_##]
+    </div>
+  </div>
+</s_tag_label>
+
+<!-- ===== 공감 버튼 영역 추가 ===== -->
+<div class="container_postbtn">
+  [##_recomm_btn_##]
+</div>
+<!-- ===== 공감 버튼 영역 끝 ===== -->
+
 
 <!-- ===== 채용 슬로건 & 버튼 영역 시작 ===== -->
 <div class="recruit-banner">
   <h2>Join the Awesome Improvement</h2>
+  <div class="divider"></div> <!-- 🔸추가된 구분선 -->
 <!--  <p>오스템임플란트와 함께 성장해 나갈 인재를 모집합니다.</p> -->
   <a href="https://career.osstem.com" class="btn view">채용 홈페이지 바로가기</a>
 </div>
@@ -398,7 +440,7 @@
               <a [##_next_page_##] class="next [##_no_more_next_##]">다음</a>
             </div>
           </s_paging>
-
+<!--
         </article>
         <aside id="aside">
           <div class="inner">
@@ -421,33 +463,27 @@
             <div class="sidebar-3">
               <s_sidebar>
                 <s_sidebar_element>
-                  <!-- 검색 -->
-                  <div class="search">
-                    <h2>검색</h2>
-                    <s_search>
-                      <fieldset>
-                        <label for="[##_search_name_##]" class="screen_out">블로그 내 검색</label>
-                        <input id="[##_search_name_##]" type="text" name="[##_search_name_##]" value=""
-                          placeholder="검색내용을 입력하세요."
-                          onkeypress="if (event.keyCode == 13 ) { [##_search_onclick_submit_##] }">
-                        <button type="button" onclick="[##_search_onclick_submit_##]">검색</button>
-                      </fieldset>
-                    </s_search>
-                  </div>
-                </s_sidebar_element>
-                <s_sidebar_element>
                 </s_sidebar_element>
               </s_sidebar>
             </div>
           </div>
         </aside>
+-->
       </section>
       <hr>
       [##_revenue_list_lower_##]
       <footer id="footer">
-        <p class="copyright">© <a href="#">OSSTEM IMPLANT</a> <class="copyright">ALL RIGHTS RESERVED. <a href="[##_owner_url_##]" class="admin">관리자</a></p>
-      </footer>
+        <div class="footer-inner">
+        <div class="footer-social">
+      <a href="https://kr.osstem.com" target="_blank" aria-label="홈페이지"><i class="fa-solid fa-house-chimney"></i></a>
+      <a href="https://www.instagram.com/osstem_korea" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/c/OsstemDenallKorea" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://kr.linkedin.com/company/osstem" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
     </div>
+    <p class="copyright">
+        <p class="copyright">© <a href="#">OSSTEM IMPLANT</a> <class="copyright">ALL RIGHTS RESERVED. <a href="[##_owner_url_##]" class="admin">관리자</a></p>
+    </div>
+      </footer>
 <!--
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -476,9 +512,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-</script>
 -->
+
     <script src="./images/script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const observer = new MutationObserver(() => {
+    const tags = document.querySelector('.tags');
+    const likeBtn = document.querySelector('[id*="recomm_btn"], .container_postbtn');
+
+    if (tags && likeBtn && !tags.classList.contains('moved')) {
+      likeBtn.parentNode.insertBefore(tags, likeBtn);
+      tags.classList.add('visible', 'moved'); // 표시 + 중복 방지
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
   </s_t3>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -494,6 +548,82 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // 목록 페이지에서만 동작 (홈, 카테고리)
+  var bodyId = document.body.id || "";
+  if (!/tt-body-(index|category)/.test(bodyId)) return;
+
+  // 카드들을 순회
+  document.querySelectorAll(".post-item").forEach(function(card){
+    var link = card.querySelector("a[href]");
+    var excerptEl = card.querySelector(".excerpt");
+    if (!link || !excerptEl) return;
+
+    // 일단 깔끔하게 초기화 (눈에 거슬리는 긴 요약 가림)
+    excerptEl.textContent = ""; 
+
+    // 같은 출처(도메인)라서 fetch 가능
+    fetch(link.href, { credentials: "same-origin" })
+      .then(function(res){ return res.text(); })
+      .then(function(htmlText){
+        // 문서 파싱
+        var doc = new DOMParser().parseFromString(htmlText, "text/html");
+        var article = doc.querySelector("#article-view"); // 본문 컨테이너
+        if (!article) return;
+
+        // 본문 HTML → 줄 인식 가능하게 전처리
+        var raw = article.innerHTML
+          .replace(/<\s*br\s*\/?>/gi, "\n")   // <br> → 개행
+          .replace(/<\/p>\s*<p>/gi, "\n")     // 문단 경계 → 개행
+          .replace(/<\/div>\s*<div>/gi, "\n");
+
+        // 태그 제거하고 순수 텍스트만
+        var text = raw.replace(/<[^>]*>/g, "")
+                      .replace(/\r\n|\r/g, "\n")
+                      .trim();
+
+        // 첫 번째 "보이는 줄" (빈 줄 건너뛰기)
+        var lines = text.split("\n").map(function(s){return s.trim();})
+                        .filter(function(s){return s.length>0;});
+        var firstLine = lines.length ? lines[0] : "";
+
+        // 결과 주입 (없으면 제목만 보이게 두기)
+        if (firstLine) {
+          excerptEl.textContent = firstLine;        // 첫 줄만!
+        }
+      })
+      .catch(function(err){
+        // 실패시 아무 것도 하지 않음(제목만 보이게)
+        // console.warn("excerpt fetch fail:", err);
+        
+      });
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const headerSearch = document.querySelector('.header-search');
+  const toggleBtn = headerSearch.querySelector('.search-toggle');
+  const closeBtn = headerSearch.querySelector('.search-close');
+  const searchInput = headerSearch.querySelector('.search-box input');
+
+  toggleBtn.addEventListener('click', () => {
+    headerSearch.classList.add('active');
+    setTimeout(() => searchInput.focus(), 300);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    headerSearch.classList.remove('active');
+    searchInput.value = "";
+  });
+});
+</script>
+
+
 </body>
 
 </html>
