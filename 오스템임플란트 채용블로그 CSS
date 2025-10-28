@@ -1442,12 +1442,12 @@ hr {
 
 .tags .items a {
   display: inline-block;
-  padding: 6px 13px;             /* 버튼 안쪽 여백 */
+  padding: 5px 8px;             /* 버튼 안쪽 여백 */
   margin: 3px -1px 0 0;           /* 버튼 사이 간격 */
-  border: 1px solid #EB6100;     /* 오스템 포인트 컬러 테두리 */
-  border-radius: 20px;           /* 둥근 모서리 → 원형 버튼 느낌 */
+  border: 1px solid #f79855 !important;     /* 오스템 포인트 컬러 테두리 */
+  /* border-radius: 20px;            둥근 모서리 → 원형 버튼 느낌 */
   background-color: #fff;        /* 배경색 (기본 흰색) */
-  color: #EB6100 !important;         /* 주황색 고정 */
+  color: #f79855 !important;         /* 주황색 고정 */
   font-size: 0.85em !important;
   text-decoration: none !important;  /* 밑줄 제거 */
   transition: all 0.2s ease-in-out;
@@ -5147,3 +5147,4 @@ body[class*="category"] .hgroup {
   color: #fff;
   border-color: #EB6100;
 }
+
